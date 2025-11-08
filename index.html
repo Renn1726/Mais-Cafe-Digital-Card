@@ -2,11 +2,7 @@
 <html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
-    <!-- 👇 ESSA LINHA É A CHAVE para o Safari ocupar toda a tela -->
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mais Café</title>
     <style>
       * {
@@ -15,36 +11,22 @@
         box-sizing: border-box;
         font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
       }
-html, body {
-  margin: 0;
-  padding: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: #6b2d1f; /* cor de fundo marrom */
-  overflow: hidden;
-  border: none;
-}
+      html {
+        height:100%
+          width:100%
+          background: linear-gradient(135deg, #61321c, #7a3b26, #4f1f12);
+      }
+      
+      body {
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(135deg, #61321c, #7a3b26, #4f1f12);
+        overflow-x: hidden;
+        padding: 1rem;
+      }
 
-body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #6b2d1f;
-  -webkit-text-size-adjust: 100%;
-  -webkit-tap-highlight-color: transparent;
-}
-
-/* Força Safari e iPhones com notch a cobrir toda a área */
-@supports (padding: env(safe-area-inset-top)) {
-  html, body {
-    padding: env(safe-area-inset-top) env(safe-area-inset-right)
-             env(safe-area-inset-bottom) env(safe-area-inset-left);
-    background-color: #6b2d1f;
-  }
-}
-
-
-      /* Todo o resto do seu CSS permanece idêntico */
       /* Loading Screen */
       .loading-screen {
         position: fixed;
@@ -495,7 +477,7 @@ body {
     <div class="loading-screen" id="loadingScreen">
       <div class="loading-logo">
         <!-- Substitua o src abaixo pela sua imagem de carregamento -->
-        <img src="IMAGES/CARDÁPIO MAIS CAFÉ (logo) 2.png" alt="Logo" />
+        <img src="IMAGES/CARDÁPIOMAISCAFÉ(logo)2.png" alt="Logo" />
       </div>
       <div class="loading-bar-container">
         <div class="loading-bar" id="loadingBar"></div>
@@ -510,12 +492,12 @@ body {
     <!-- Floating Icons -->
     <!-- Substitua o src abaixo pela sua imagem do ícone flutuante superior -->
     <div class="floating-icon top">
-      <img src="IMAGES/chicara copy 2.png" alt="Ícone" />
+      <img src="IMAGES/chicaracopy2.png" alt="Ícone" />
     </div>
 
     <!-- Substitua o src abaixo pela sua imagem do ícone flutuante inferior -->
     <div class="floating-icon bottom">
-      <img src="IMAGES/chicara copy.png" alt="Ícone" />
+      <img src="IMAGES/chicaracopy.png" alt="Ícone" />
     </div>
 
     <!-- Main Content -->
@@ -527,7 +509,7 @@ body {
           <div class="logo-container animate-fall delay-2">
             <!-- Substitua o src abaixo pela sua logo principal -->
             <img
-              src="IMAGES/CARDÁPIO MAIS CAFÉ (logo) 2.png"
+              src="IMAGES/CARDÁPIOMAISCAFÉ(logo)2.png"
               alt="Logo Mais Café"
             />
           </div>
