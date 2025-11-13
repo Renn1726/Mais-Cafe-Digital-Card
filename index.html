@@ -4,10 +4,12 @@
     <meta charset="UTF-8" />
     <meta
       name="viewport"
-      content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
     />
-    <link rel="icon" href__="IMAGES/LOGO.png" type="image/png" />
-    <link rel="apple-touch-icon" href__="IMAGES/LOGO.png" />
+    <link rel="icon" href="IMAGES/LOGO.png" type="image/png" />
+    <!-- Favicon -->
+    <link rel="icon" href="IMAGES/LOGO.png" type="image/png" />
+    <link rel="apple-touch-icon" href="IMAGES/LOGO.png" />
 
     <!-- Open Graph / WhatsApp / Facebook -->
     <meta property="og:title" content="Mais Café ☕" />
@@ -280,6 +282,7 @@
         line-height: 1.35;
       }
 
+      /* Status minimalista e clean */
       .status-wrapper {
         display: flex;
         flex-direction: column;
@@ -351,6 +354,7 @@
         color: #a65d3c;
       }
 
+      /* Carrossel */
       .carousel-container {
         width: 100%;
         margin-bottom: 2rem;
@@ -426,245 +430,315 @@
       }
 
       .carousel-dot {
-        width: 10px;
-        height: 10px;
+        width: 8px;
+        height: 8px;
         border-radius: 50%;
-        background: rgba(255, 255, 255, 0.5);
-        border: 2px solid white;
+        background: rgba(255, 255, 255, 0.4);
         cursor: pointer;
         transition: all 0.3s ease;
+        border: 2px solid transparent;
       }
 
       .carousel-dot.active {
         background: white;
-        transform: scale(1.15);
+        width: 10px;
+        height: 10px;
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
       }
 
-      .action-buttons {
+      .buttons {
         display: flex;
         flex-direction: column;
-        gap: 1rem;
+        gap: 1.25rem;
         width: 100%;
-        margin-top: 0.5rem;
       }
 
       .btn {
-        width: 100%;
-        padding: 1rem 1.5rem;
-        border-radius: 20px;
-        border: none;
-        font-size: 1rem;
-        font-weight: 600;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        text-decoration: none;
         display: flex;
         align-items: center;
         justify-content: center;
-        gap: 0.5rem;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        position: relative;
+        height: 62px;
+        border: none;
+        border-radius: 15px;
+        font-size: 1.125rem;
+        font-weight: 500;
+        cursor: pointer;
+        color: white;
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        overflow: hidden;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        padding: 0 1.5rem;
+        transform: scale(1);
+      }
+
+      .btn:active {
+        transform: scale(0.96);
+      }
+
+      .btn::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.3),
+          transparent
+        );
+        transition: left 0.6s ease;
+      }
+
+      .btn:hover::before {
+        left: 100%;
+      }
+
+      .btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 12px 20px rgba(0, 0, 0, 0.25);
       }
 
       .btn-primary {
-        background: linear-gradient(135deg, #a65d3c, #8d4d27);
-        color: white;
-      }
-
-      .btn-primary:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 8px 20px rgba(166, 93, 60, 0.35);
-      }
-
-      .btn-primary:active {
-        transform: translateY(-1px);
+        background: linear-gradient(135deg, #a65d3c, #c4815a);
       }
 
       .btn-secondary {
-        background: white;
-        color: #a65d3c;
-        border: 2px solid #a65d3c;
+        background: linear-gradient(135deg, #8d4d27, #a65d3c);
       }
 
-      .btn-secondary:hover {
-        background: #a65d3c;
-        color: white;
-        transform: translateY(-3px);
-        box-shadow: 0 8px 20px rgba(166, 93, 60, 0.25);
-      }
-
-      .btn-secondary:active {
-        transform: translateY(-1px);
+      .btn-tertiary {
+        background: linear-gradient(135deg, #c4815a, #d6a372);
       }
 
       .btn-icon {
-        width: 1.25rem;
-        height: 1.25rem;
+        width: 1.5rem;
+        height: 1.5rem;
+        margin-right: 0.75rem;
+        filter: brightness(0) invert(1);
+      }
+
+      .footer {
+        margin-top: 2.5rem;
+        padding-top: 2rem;
+        border-top: 1px solid rgba(166, 93, 60, 0.15);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
       }
 
       .social-links {
         display: flex;
         gap: 1rem;
-        justify-content: center;
-        margin-top: 1.5rem;
       }
 
       .social-link {
-        width: 45px;
-        height: 45px;
-        border-radius: 50%;
+        width: 52px;
+        height: 52px;
         display: flex;
         align-items: center;
         justify-content: center;
-        background: linear-gradient(135deg, #a65d3c, #8d4d27);
+        background: linear-gradient(135deg, #a65d3c, #c4815a);
+        border-radius: 50%;
         color: white;
         text-decoration: none;
-        transition: all 0.3s ease;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .social-link::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.3),
+          transparent
+        );
+        transition: left 0.6s ease;
+      }
+
+      .social-link:hover::before {
+        left: 100%;
       }
 
       .social-link:hover {
-        transform: translateY(-4px) scale(1.08);
-        box-shadow: 0 8px 18px rgba(166, 93, 60, 0.35);
+        transform: translateY(-3px) scale(1.05);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
       }
 
       .social-link:active {
-        transform: translateY(-2px) scale(1.05);
+        transform: scale(0.95);
       }
 
       .social-icon {
-        width: 22px;
-        height: 22px;
+        width: 1.5rem;
+        height: 1.5rem;
+        filter: brightness(0) invert(1);
+        position: relative;
+        z-index: 1;
       }
 
-      /* PDF Viewer - OTIMIZADO PARA MOBILE */
+      .footer-info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.75rem;
+      }
+
+      .footer-text {
+        font-size: 0.875rem;
+        color: #8d4d27;
+        text-align: center;
+        line-height: 1.6;
+        font-weight: 500;
+      }
+
+      .footer-address {
+        font-size: 0.8rem;
+        color: #a65d3c;
+        text-align: center;
+        line-height: 1.5;
+        max-width: 280px;
+      }
+
+      .footer-contact {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 0.8rem;
+        color: #a65d3c;
+      }
+
+      .footer-contact a {
+        color: #a65d3c;
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+
+      .footer-contact a:hover {
+        color: #8d4d27;
+      }
+
       .pdf-viewer-overlay {
         position: fixed;
         top: 0;
         left: 0;
         width: 100%;
         height: 100vh;
-        height: 100dvh;
         background: rgba(0, 0, 0, 0);
+        backdrop-filter: blur(0);
         z-index: 10000;
         display: flex;
         align-items: center;
         justify-content: center;
         opacity: 0;
         visibility: hidden;
-        transition: all 0.4s ease;
-        padding: 0;
+        transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        padding: 1rem;
       }
-
       .pdf-viewer-overlay.active {
         opacity: 1;
         visibility: visible;
-        background: rgba(0, 0, 0, 0.95);
+        background: rgba(0, 0, 0, 0.85);
+        backdrop-filter: blur(8px);
       }
-
       .pdf-viewer-container {
         width: 100%;
-        height: 100%;
-        background: #2a2a2a;
+        max-width: 1000px;
+        height: 90vh;
+        background: #fff;
+        border-radius: 24px;
+        box-shadow: 0 30px 80px rgba(0, 0, 0, 0.4);
+        overflow: hidden;
+        transform: scale(0.8) translateY(50px);
+        opacity: 0;
+        transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
         display: flex;
         flex-direction: column;
-        transform: translateY(100%);
-        transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
       }
-
       .pdf-viewer-overlay.active .pdf-viewer-container {
-        transform: translateY(0);
+        transform: scale(1) translateY(0);
+        opacity: 1;
       }
-
       .pdf-viewer-header {
-        padding: 1rem 1.25rem;
+        padding: 1.5rem 2rem;
         background: linear-gradient(135deg, #a65d3c, #8d4d27);
         display: flex;
         align-items: center;
         justify-content: space-between;
-        flex-shrink: 0;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+        border-bottom: 3px solid rgba(255, 255, 255, 0.2);
       }
-
       .pdf-viewer-title {
-        color: white;
-        font-size: 1.15rem;
+        color: #fff;
+        font-size: 1.5rem;
         font-weight: 600;
+        letter-spacing: 0.5px;
         display: flex;
         align-items: center;
-        gap: 0.5rem;
+        gap: 0.75rem;
       }
-
       .pdf-close-btn {
-        width: 36px;
-        height: 36px;
+        width: 40px;
+        height: 40px;
         border-radius: 50%;
         background: rgba(255, 255, 255, 0.2);
         border: none;
-        color: white;
+        color: #fff;
         font-size: 1.5rem;
         cursor: pointer;
         display: flex;
         align-items: center;
         justify-content: center;
         transition: all 0.3s ease;
-        flex-shrink: 0;
+        backdrop-filter: blur(10px);
       }
-
-      .pdf-close-btn:active {
+      .pdf-close-btn:hover {
         background: rgba(255, 255, 255, 0.3);
-        transform: scale(0.95);
+        transform: rotate(90deg) scale(1.1);
       }
-
-      .pdf-content-wrapper {
+      .pdf-iframe-wrapper {
         flex: 1;
         position: relative;
-        overflow: auto;
-        -webkit-overflow-scrolling: touch;
-        background: #1a1a1a;
+        overflow: hidden;
+        background: #f5f5f5;
       }
-
-      .pdf-embed {
+      .pdf-iframe {
         width: 100%;
         height: 100%;
         border: none;
-        background: white;
+        overflow: hidden;
+        background: #f5f5f5;
+        transform-origin: top center;
       }
 
-      .pdf-fallback {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        text-align: center;
-        padding: 2rem;
-        display: none;
+      /* 📱 Ajuste fino específico para iOS e Android */
+      @supports (-webkit-touch-callout: none) {
+        .pdf-iframe {
+          width: 100vw !important;
+          height: 100vh !important;
+          transform: scale(0.98); /* se ainda cortar, reduza para 0.96 */
+          transform-origin: top center;
+        }
       }
 
-      .pdf-fallback.show {
-        display: block;
-      }
-
-      .pdf-fallback-text {
-        color: white;
-        font-size: 1.1rem;
-        margin-bottom: 1.5rem;
-      }
-
-      .pdf-download-btn {
-        background: linear-gradient(135deg, #a65d3c, #8d4d27);
-        color: white;
-        padding: 1rem 2rem;
-        border-radius: 12px;
-        text-decoration: none;
-        display: inline-flex;
-        align-items: center;
-        gap: 0.5rem;
-        font-weight: 600;
-        transition: all 0.3s ease;
-      }
-
-      .pdf-download-btn:active {
-        transform: scale(0.95);
+      @media (max-width: 768px) {
+        .pdf-viewer-container {
+          width: 100vw;
+          height: 100vh;
+          border-radius: 0;
+          margin: 0;
+        }
       }
 
       .pdf-loading {
@@ -676,9 +750,7 @@
         flex-direction: column;
         align-items: center;
         gap: 1rem;
-        z-index: 2;
       }
-
       .pdf-loading-spinner {
         width: 50px;
         height: 50px;
@@ -687,281 +759,97 @@
         border-radius: 50%;
         animation: spin 0.8s linear infinite;
       }
-
       @keyframes spin {
         to {
           transform: rotate(360deg);
         }
       }
-
       .pdf-loading-text {
-        color: white;
+        color: #a65d3c;
         font-weight: 500;
         font-size: 1rem;
       }
-
-      @media (min-width: 769px) {
-        .pdf-viewer-overlay {
-          padding: 1rem;
-        }
-
+      @media (max-width: 768px) {
         .pdf-viewer-container {
-          max-width: 1000px;
-          height: 90vh;
-          border-radius: 24px;
-          box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
-          transform: scale(0.9);
+          height: 95vh;
+          border-radius: 20px;
         }
-
-        .pdf-viewer-overlay.active .pdf-viewer-container {
-          transform: scale(1);
-        }
-
         .pdf-viewer-header {
-          padding: 1.5rem 2rem;
-          border-radius: 24px 24px 0 0;
+          padding: 1rem 1.5rem;
         }
-
         .pdf-viewer-title {
-          font-size: 1.5rem;
-          gap: 0.75rem;
-        }
-
-        .pdf-close-btn {
-          width: 40px;
-          height: 40px;
-        }
-
-        .pdf-close-btn:hover {
-          background: rgba(255, 255, 255, 0.3);
-          transform: rotate(90deg) scale(1.1);
+          font-size: 1.2rem;
         }
       }
 
       @media (max-width: 480px) {
+        .card-content {
+          padding: 2rem 1.25rem;
+        }
+
+        .logo-container {
+          width: 130px;
+          height: 130px;
+        }
+
         .card-title {
-          font-size: 2rem;
+          font-size: 2.125rem;
         }
 
         .card-subtitle {
+          font-size: 1.125rem;
+        }
+
+        .carousel {
+          height: 200px;
+        }
+
+        .carousel-text {
           font-size: 1.1rem;
         }
 
+        .carousel-overlay {
+          padding: 2rem 1rem 2.75rem;
+        }
+
+        .status-indicator {
+          font-size: 0.8rem;
+        }
+
+        .hours-text {
+          font-size: 0.75rem;
+        }
+
         .btn {
-          padding: 0.875rem 1.25rem;
-          font-size: 0.95rem;
+          height: 58px;
+          font-size: 1.0625rem;
         }
 
         .social-link {
-          width: 42px;
-          height: 42px;
+          width: 48px;
+          height: 48px;
         }
 
-        .pdf-viewer-title {
-          font-size: 1rem;
+        .social-icon {
+          width: 1.375rem;
+          height: 1.375rem;
         }
 
-        .pdf-viewer-title svg {
-          width: 18px;
-          height: 18px;
+        .footer-text,
+        .footer-address,
+        .footer-contact {
+          font-size: 0.8rem;
+        }
+      }
+
+      @media (min-width: 481px) and (max-width: 768px) {
+        .card-content {
+          padding: 2.25rem 1.375rem;
         }
       }
     </style>
   </head>
   <body>
-    <div class="loading-screen" id="loadingScreen">
-      <div class="loading-logo">
-        <img src="IMAGES/LOGO.png" alt="Mais Café Logo" />
-      </div>
-      <div class="loading-bar-container">
-        <div class="loading-bar" id="loadingBar"></div>
-      </div>
-      <div class="loading-text">Carregando...</div>
-    </div>
-
-    <div class="pattern-circle circle-top-left"></div>
-    <div class="pattern-circle circle-bottom-right"></div>
-
-    <div class="floating-icon top">
-      <img src="IMAGES/LOGO.png" alt="Floating Icon" />
-    </div>
-    <div class="floating-icon bottom">
-      <img src="IMAGES/LOGO.png" alt="Floating Icon" />
-    </div>
-
-    <div class="main-content" id="mainContent">
-      <div class="card">
-        <div class="card-header"></div>
-        <div class="card-content">
-          <div class="logo-container">
-            <img src="IMAGES/LOGO.png" alt="Logo Mais Café" />
-          </div>
-
-          <h1 class="card-title">Mais Café</h1>
-          <p class="card-subtitle">
-            Servindo momentos especiais<br />com café de qualidade
-          </p>
-
-          <div class="status-wrapper">
-            <div class="status-indicator" id="statusIndicator">
-              <span class="status-dot"></span>
-              <span id="statusText"></span>
-            </div>
-            <div class="hours-text" id="hoursText"></div>
-          </div>
-
-          <div class="card-divider">
-            <div class="divider-line"></div>
-            <svg
-              class="divider-icon"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 512 512"
-            >
-              <path
-                d="M88 0C74.7 0 64 10.7 64 24c0 38.9 23.4 59.4 39.1 73.1l1.1 1C120.5 112.3 128 119.9 128 136c0 13.3 10.7 24 24 24s24-10.7 24-24c0-38.9-23.4-59.4-39.1-73.1l-1.1-1C119.5 47.7 112 40.1 112 24c0-13.3-10.7-24-24-24zM32 192c-17.7 0-32 14.3-32 32V416c0 53 43 96 96 96H288c53 0 96-43 96-96h16c61.9 0 112-50.1 112-112s-50.1-112-112-112H352 32zm352 64h16c26.5 0 48 21.5 48 48s-21.5 48-48 48H384V256zM224 24c0-13.3-10.7-24-24-24s-24 10.7-24 24c0 38.9 23.4 59.4 39.1 73.1l1.1 1C232.5 112.3 240 119.9 240 136c0 13.3 10.7 24 24 24s24-10.7 24-24c0-38.9-23.4-59.4-39.1-73.1l-1.1-1C231.5 47.7 224 40.1 224 24z"
-              />
-            </svg>
-            <div class="divider-line"></div>
-          </div>
-
-          <div class="carousel-container">
-            <div class="carousel">
-              <div class="carousel-slides">
-                <div class="carousel-slide active">
-                  <img src="IMAGES/carrossel1.jpg" alt="Café Artesanal" />
-                  <div class="carousel-overlay">
-                    <p class="carousel-text">
-                      Descubra o sabor autêntico do café artesanal
-                    </p>
-                  </div>
-                </div>
-                <div class="carousel-slide">
-                  <img src="IMAGES/carrossel2.jpg" alt="Ambiente Aconchegante" />
-                  <div class="carousel-overlay">
-                    <p class="carousel-text">
-                      Um espaço aconchegante para seus momentos
-                    </p>
-                  </div>
-                </div>
-                <div class="carousel-slide">
-                  <img src="IMAGES/carrossel3.jpg" alt="Cafés Especiais" />
-                  <div class="carousel-overlay">
-                    <p class="carousel-text">Cafés especiais selecionados</p>
-                  </div>
-                </div>
-              </div>
-              <div class="carousel-dots">
-                <div class="carousel-dot active" data-slide="0"></div>
-                <div class="carousel-dot" data-slide="1"></div>
-                <div class="carousel-dot" data-slide="2"></div>
-              </div>
-            </div>
-          </div>
-
-          <div class="action-buttons">
-            <button class="btn btn-primary" id="menuBtn">
-              <svg
-                class="btn-icon"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
-                />
-              </svg>
-              Ver Cardápio
-            </button>
-
-            <a
-              href__="https://wa.me/5522992754205"
-              target="_blank"
-              class="btn btn-secondary"
-            >
-              <svg class="btn-icon" fill="currentColor" viewBox="0 0 24 24">
-                <path
-                  d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"
-                />
-              </svg>
-              Fazer Pedido
-            </a>
-
-            <a
-              href__="https://www.google.com/maps/place/Mais+Café/@-22.2488405,-41.9392577,17z/data=!3m1!4b1!4m6!3m5!1s0x9638aabc89c74b:0x17ad4daa57a0f0b8!8m2!3d-22.2488455!4d-41.9366828!16s%2Fg%2F11vyn98ns7?entry=ttu&g_ep=EgoyMDI1MDEwOC4wIKXMDSoASAFQAw%3D%3D"
-              target="_blank"
-              class="btn btn-secondary"
-            >
-              <svg
-                class="btn-icon"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-                />
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-                />
-              </svg>
-              Localização
-            </a>
-          </div>
-
-          <div class="social-links">
-            <a
-              href__="https://www.instagram.com/mais.cafe.sfi?igsh=MXRwNjRpZng3anNkdw=="
-              target="_blank"
-              class="social-link"
-              aria-label="Instagram"
-            >
-              <svg class="social-icon" fill="currentColor" viewBox="0 0 24 24">
-                <path
-                  d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
-                />
-              </svg>
-            </a>
-
-            <a
-              href__="https://www.facebook.com/profile.php?id=61565253486343&mibextid=ZbWKwL"
-              target="_blank"
-              class="social-link"
-              aria-label="Facebook"
-            >
-              <svg class="social-icon" fill="currentColor" viewBox="0 0 24 24">
-                <path
-                  d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"
-                />
-              </svg>
-            </a>
-
-            <a
-              href__="https://wa.me/5522992754205"
-              target="_blank"
-              class="social-link"
-              aria-label="WhatsApp"
-            >
-              <svg class="social-icon" fill="currentColor" viewBox="0 0 24 24">
-                <path
-                  d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"
-                />
-              </svg>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- PDF Viewer -->
     <div class="pdf-viewer-overlay" id="pdfViewerOverlay">
       <div class="pdf-viewer-container">
         <div class="pdf-viewer-header">
@@ -984,22 +872,208 @@
           </div>
           <button class="pdf-close-btn" id="pdfCloseBtn">×</button>
         </div>
-        <div class="pdf-content-wrapper">
+        <div class="pdf-iframe-wrapper">
           <div class="pdf-loading" id="pdfLoading">
             <div class="pdf-loading-spinner"></div>
             <div class="pdf-loading-text">Carregando cardápio...</div>
           </div>
-          <embed id="pdfEmbed" class="pdf-embed" type="application/pdf" />
-          <div class="pdf-fallback" id="pdfFallback">
-            <p class="pdf-fallback-text">
-              📄 Não consegue visualizar o PDF?<br />Baixe para ver todas as páginas
-            </p>
-            <a href__="cardapio.pdf" download class="pdf-download-btn">
-              <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
+          <iframe id="pdfIframe" class="pdf-iframe"></iframe>
+        </div>
+      </div>
+    </div>
+    <div class="loading-screen" id="loadingScreen">
+      <div class="loading-logo">
+        <img src="IMAGES/LOGO.png" alt="Logo Mais Café" />
+      </div>
+      <div class="loading-bar-container">
+        <div class="loading-bar" id="loadingBar"></div>
+      </div>
+      <div class="loading-text">Preparando seu café...</div>
+    </div>
+
+    <div class="pattern-circle circle-top-left"></div>
+    <div class="pattern-circle circle-bottom-right"></div>
+
+    <div class="floating-icon top">
+      <img src="IMAGES/chicara copy 2.png" alt="Ícone café" />
+    </div>
+    <div class="floating-icon bottom">
+      <img src="IMAGES/chicara.png" alt="Ícone café" />
+    </div>
+
+    <div class="main-content" id="mainContent">
+      <div class="card">
+        <div class="card-header"></div>
+
+        <div class="card-content">
+          <div class="logo-container">
+            <img src="IMAGES/LOGO.png" alt="Logo Mais Café" />
+          </div>
+
+          <h1 class="card-title">Mais Café</h1>
+          <p class="card-subtitle">O Sabor que insipira!</p>
+
+          <!-- Status minimalista -->
+          <div class="status-wrapper">
+            <div class="status-indicator" id="statusIndicator">
+              <span class="status-dot"></span>
+              <span id="statusText">Verificando...</span>
+            </div>
+            <div class="hours-text">Ter–Dom • 07h30–10h30 • 16h–22h</div>
+          </div>
+
+          <div class="card-divider">
+            <div class="divider-line"></div>
+            <img src="IMAGES/chicara copy.png" alt="" class="divider-icon" />
+            <div class="divider-line"></div>
+          </div>
+
+          <!-- Carrossel -->
+          <div class="carousel-container">
+            <div class="carousel">
+              <div class="carousel-slides">
+                <div class="carousel-slide active">
+                  <img
+                    src="https://images.unsplash.com/photo-1511920170033-f8396924c348?w=800&q=80"
+                    alt="Café especial"
+                  />
+                  <div class="carousel-overlay">
+                    <p class="carousel-text">Cafés Especiais Selecionados</p>
+                  </div>
+                </div>
+                <div class="carousel-slide">
+                  <img
+                    src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=800&q=80"
+                    alt="Ambiente aconchegante"
+                  />
+                  <div class="carousel-overlay">
+                    <p class="carousel-text">Ambiente Sofisticado</p>
+                  </div>
+                </div>
+                <div class="carousel-slide">
+                  <img
+                    src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=800&q=80"
+                    alt="Arte em café"
+                  />
+                  <div class="carousel-overlay">
+                    <p class="carousel-text">Arte em Cada Xícara</p>
+                  </div>
+                </div>
+                <div class="carousel-slide">
+                  <img
+                    src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=800&q=80"
+                    alt="Grãos premium"
+                  />
+                  <div class="carousel-overlay">
+                    <p class="carousel-text">Grãos Premium Importados</p>
+                  </div>
+                </div>
+              </div>
+              <div class="carousel-dots">
+                <span class="carousel-dot active" data-slide="0"></span>
+                <span class="carousel-dot" data-slide="1"></span>
+                <span class="carousel-dot" data-slide="2"></span>
+                <span class="carousel-dot" data-slide="3"></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="buttons">
+            <button class="btn btn-primary" id="menuBtn">
+              <svg
+                class="btn-icon"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
               </svg>
-              Baixar Cardápio
-            </a>
+              Ver Cardápio
+            </button>
+
+            <button class="btn btn-secondary" id="whatsappBtn">
+              <svg
+                class="btn-icon"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path
+                  d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"
+                />
+              </svg>
+              Fazer Pedido
+            </button>
+
+            <button class="btn btn-tertiary" id="locationBtn">
+              <svg
+                class="btn-icon"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path
+                  d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
+                />
+              </svg>
+              Nossa Localização
+            </button>
+          </div>
+
+          <div class="footer">
+            <div class="social-links">
+              <a href__="#" class="social-link" aria-label="Instagram">
+                <svg
+                  class="social-icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path
+                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
+                  />
+                </svg>
+              </a>
+
+              <a href__="#" class="social-link" aria-label="Facebook">
+                <svg
+                  class="social-icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path
+                    d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"
+                  />
+                </svg>
+              </a>
+
+              <a href__="#" class="social-link" aria-label="WhatsApp">
+                <svg
+                  class="social-icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path
+                    d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"
+                  />
+                </svg>
+              </a>
+            </div>
+
+            <div class="footer-info">
+              <p class="footer-text">Servindo os melhores cafés desde 2025</p>
+              <p class="footer-address">
+                Rua Dep. Álvaro Soares, 629<br />
+                Ibiapina, CE
+              </p>
+              <div class="footer-contact">
+                <a href__="tel:+5511999999999">(88) 99458-6634</a>
+                <!-- <a href__="mailto:contato@maiscafe.com.br"
+                  >contato@maiscafe.com.br</a -->
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -1007,147 +1081,188 @@
 
     <script>
       // Loading Screen
-      window.addEventListener("load", () => {
+      window.addEventListener("load", function () {
+        let progress = 0;
         const loadingBar = document.getElementById("loadingBar");
         const loadingScreen = document.getElementById("loadingScreen");
         const mainContent = document.getElementById("mainContent");
 
-        let progress = 0;
         const interval = setInterval(() => {
           progress += Math.random() * 15;
-          if (progress >= 100) {
-            progress = 100;
+          if (progress > 100) progress = 100;
+
+          loadingBar.style.width = progress + "%";
+
+          if (progress === 100) {
             clearInterval(interval);
             setTimeout(() => {
               loadingScreen.classList.add("hidden");
               mainContent.classList.add("visible");
-            }, 500);
+            }, 400);
           }
-          loadingBar.style.width = progress + "%";
-        }, 100);
+        }, 150);
       });
 
-      // Status Check
-      function checkStatus() {
+      // Verificar se está aberto - Terça a Domingo, 07:30-10:30 e 16:00-22:00
+      function checkIfOpen() {
         const now = new Date();
-        const day = now.getDay();
+        const day = now.getDay(); // 0 = Domingo, 1 = Segunda, ..., 6 = Sábado
         const hours = now.getHours();
         const minutes = now.getMinutes();
+        const currentTime = hours * 60 + minutes; // Converter para minutos totais
+
+        // Segunda-feira (1) = fechado
+        if (day === 1) {
+          return false;
+        }
+
+        // Horários de funcionamento
+        const morning_start = 7 * 60 + 30; // 07:30 = 450 minutos
+        const morning_end = 10 * 60 + 30; // 10:30 = 630 minutos
+        const afternoon_start = 16 * 60; // 16:00 = 960 minutos
+        const afternoon_end = 22 * 60; // 22:00 = 1320 minutos
+
+        // Verificar se está dentro dos horários
+        const isOpen =
+          (currentTime >= morning_start && currentTime <= morning_end) ||
+          (currentTime >= afternoon_start && currentTime <= afternoon_end);
+
+        return isOpen;
+      }
+
+      function updateStatus() {
         const statusIndicator = document.getElementById("statusIndicator");
         const statusText = document.getElementById("statusText");
-        const hoursText = document.getElementById("hoursText");
-        const currentTime = hours * 60 + minutes;
-        const openTime = 7 * 60;
-        const closeTime = 19 * 60;
-        const isWeekday = day >= 1 && day <= 5;
-        const isSaturday = day === 6;
-        const isSunday = day === 0;
-        let isOpen = false;
-
-        if (isWeekday || isSaturday) {
-          isOpen = currentTime >= openTime && currentTime < closeTime;
-        }
+        const isOpen = checkIfOpen();
 
         if (isOpen) {
-          statusIndicator.classList.add("open");
           statusIndicator.classList.remove("closed");
+          statusIndicator.classList.add("open");
           statusText.textContent = "Aberto agora";
-          hoursText.textContent = "Seg-Sáb: 7h - 19h";
         } else {
-          statusIndicator.classList.add("closed");
           statusIndicator.classList.remove("open");
+          statusIndicator.classList.add("closed");
           statusText.textContent = "Fechado";
-          hoursText.textContent = isSunday
-            ? "Fechado aos domingos"
-            : "Seg-Sáb: 7h - 19h";
         }
       }
 
-      checkStatus();
-      setInterval(checkStatus, 60000);
+      // Atualizar status ao carregar e a cada minuto
+      updateStatus();
+      setInterval(updateStatus, 60000);
 
-      // Carousel
-      let currentSlide = 0;
-      const slides = document.querySelectorAll(".carousel-slide");
-      const dots = document.querySelectorAll(".carousel-dot");
+      // Carrossel JavaScript
+      (function () {
+        const slides = document.querySelectorAll(".carousel-slide");
+        const dots = document.querySelectorAll(".carousel-dot");
+        let currentSlide = 0;
+        const slideInterval = 4000;
+        let autoplayInterval;
 
-      function showSlide(index) {
-        slides.forEach((slide, i) => {
-          slide.classList.remove("active");
-          dots[i].classList.remove("active");
+        function showSlide(index) {
+          slides.forEach((slide) => slide.classList.remove("active"));
+          dots.forEach((dot) => dot.classList.remove("active"));
+
+          currentSlide = index;
+          if (currentSlide >= slides.length) currentSlide = 0;
+          if (currentSlide < 0) currentSlide = slides.length - 1;
+
+          slides[currentSlide].classList.add("active");
+          dots[currentSlide].classList.add("active");
+        }
+
+        function nextSlide() {
+          showSlide(currentSlide + 1);
+        }
+
+        function startAutoplay() {
+          autoplayInterval = setInterval(nextSlide, slideInterval);
+        }
+
+        function stopAutoplay() {
+          clearInterval(autoplayInterval);
+        }
+
+        dots.forEach((dot, index) => {
+          dot.addEventListener("click", () => {
+            stopAutoplay();
+            showSlide(index);
+            startAutoplay();
+          });
         });
-        slides[index].classList.add("active");
-        dots[index].classList.add("active");
-        currentSlide = index;
-      }
 
-      function nextSlide() {
-        currentSlide = (currentSlide + 1) % slides.length;
-        showSlide(currentSlide);
-      }
+        const carousel = document.querySelector(".carousel");
+        carousel.addEventListener("mouseenter", stopAutoplay);
+        carousel.addEventListener("mouseleave", startAutoplay);
 
-      dots.forEach((dot, index) => {
-        dot.addEventListener("click", () => showSlide(index));
-      });
+        let touchStartX = 0;
+        let touchEndX = 0;
 
-      setInterval(nextSlide, 5000);
+        carousel.addEventListener("touchstart", (e) => {
+          touchStartX = e.changedTouches[0].screenX;
+          stopAutoplay();
+        });
 
-      // PDF Viewer - OTIMIZADO
+        carousel.addEventListener("touchend", (e) => {
+          touchEndX = e.changedTouches[0].screenX;
+          handleSwipe();
+          startAutoplay();
+        });
+
+        function handleSwipe() {
+          if (touchEndX < touchStartX - 50) {
+            showSlide(currentSlide + 1);
+          }
+          if (touchEndX > touchStartX + 50) {
+            showSlide(currentSlide - 1);
+          }
+        }
+
+        startAutoplay();
+      })();
+
+      // Botões
+      // document.getElementById("menuBtn").addEventListener("click", function () {
+      //   window.open("https://maiscafé.store/cardapio.pdf", "_blank");
+      // });
+
+      document
+        .getElementById("whatsappBtn")
+        .addEventListener("click", function () {
+          window.open(
+            "https://wa.me/5588994586634?text=Olá,%20gostaria%20de%20fazer%20um%20pedido!",
+            "_blank"
+          );
+        });
+
+      document
+        .getElementById("locationBtn")
+        .addEventListener("click", function () {
+          window.open(
+            "https://maps.google.com/?q=Cafeteria+Mais+Cafe",
+            "_blank"
+          );
+        });
       const menuBtn = document.getElementById("menuBtn");
       const pdfViewerOverlay = document.getElementById("pdfViewerOverlay");
       const pdfCloseBtn = document.getElementById("pdfCloseBtn");
-      const pdfEmbed = document.getElementById("pdfEmbed");
+      const pdfIframe = document.getElementById("pdfIframe");
       const pdfLoading = document.getElementById("pdfLoading");
-      const pdfFallback = document.getElementById("pdfFallback");
 
-      const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-      const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
-
-      function openPDF(e) {
-        e.preventDefault();
-        e.stopPropagation();
-
+      function openPDF() {
         pdfViewerOverlay.classList.add("active");
         document.body.style.overflow = "hidden";
-
-        // iOS e Android: Mostrar fallback para download
-        if (isMobile) {
-          setTimeout(() => {
-            pdfLoading.style.display = "none";
-            pdfFallback.classList.add("show");
-            
-            // Tentar carregar o PDF mesmo assim
-            pdfEmbed.src = "cardapio.pdf#view=FitH&toolbar=1&navpanes=1&scrollbar=1";
-          }, 500);
-        } else {
-          // Desktop: Carregar normalmente
-          pdfEmbed.src = "cardapio.pdf#view=FitH&toolbar=1&navpanes=1";
-          
-          pdfEmbed.onload = function () {
-            setTimeout(() => {
-              pdfLoading.style.display = "none";
-            }, 800);
-          };
-
-          // Se não carregar em 3s, mostrar fallback
-          setTimeout(() => {
-            if (pdfLoading.style.display !== "none") {
-              pdfLoading.style.display = "none";
-              pdfFallback.classList.add("show");
-            }
-          }, 3000);
-        }
+        pdfIframe.src = "cardapio.pdf";
+        pdfIframe.onload = () =>
+          setTimeout(() => (pdfLoading.style.display = "none"), 500);
       }
 
       function closePDF() {
         pdfViewerOverlay.classList.remove("active");
         document.body.style.overflow = "";
-
         setTimeout(() => {
-          pdfEmbed.src = "";
+          pdfIframe.src = "";
           pdfLoading.style.display = "flex";
-          pdfFallback.classList.remove("show");
-        }, 400);
+        }, 600);
       }
 
       menuBtn.addEventListener("click", openPDF);
@@ -1156,10 +1271,7 @@
         if (e.target === pdfViewerOverlay) closePDF();
       });
       document.addEventListener("keydown", (e) => {
-        if (
-          e.key === "Escape" &&
-          pdfViewerOverlay.classList.contains("active")
-        )
+        if (e.key === "Escape" && pdfViewerOverlay.classList.contains("active"))
           closePDF();
       });
     </script>
