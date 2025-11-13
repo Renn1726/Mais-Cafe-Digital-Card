@@ -1265,12 +1265,35 @@
           /iPad|iPhone|iPod/.test(navigator.userAgent) ||
           (navigator.userAgent.includes("Mac") && "ontouchend" in document);
 
+        const pdfUrl = "https://renn1726.github.io/Mais-Cafe/cardapio.pdf";
+
         if (isIOS) {
-          // 🍎 iOS → abre no visualizador nativo do Safari com link absoluto
-          window.open(
-            "https://renn1726.github.io/Mais-Cafe/cardapio.pdf",
-            "_blank"
-          );
+          // ⚡ iOS → Pré-carrega o PDF antes de abrir no Safari
+          const preloader = new XMLHttpRequest();
+
+          // Mostra o "Carregando..." enquanto baixa
+          pdfLoading.style.display = "flex";
+
+          preloader.open("GET", pdfUrl, true);
+          preloader.responseType = "blob";
+
+          preloader.onload = function () {
+            if (preloader.status === 200) {
+              const file = window.URL.createObjectURL(preloader.response);
+              window.open(file, "_blank"); // abre instantâneo no Safari
+              pdfLoading.style.display = "none";
+            } else {
+              alert(
+                "Não foi possível carregar o cardápio agora. Tente novamente."
+              );
+            }
+          };
+
+          preloader.onerror = function () {
+            alert("Erro ao carregar o cardápio. Verifique sua conexão.");
+          };
+
+          preloader.send();
         } else {
           // 🤖 Android e Desktop → abre no visualizador embutido
           pdfViewerOverlay.classList.add("active");
