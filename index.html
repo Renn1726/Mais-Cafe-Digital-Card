@@ -1251,11 +1251,19 @@
       const pdfLoading = document.getElementById("pdfLoading");
 
       function openPDF() {
-        pdfViewerOverlay.classList.add("active");
-        document.body.style.overflow = "hidden";
-        pdfIframe.src = "cardapio.pdf";
-        pdfIframe.onload = () =>
-          setTimeout(() => (pdfLoading.style.display = "none"), 500);
+        const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+
+        if (isIOS) {
+          // 📱 iOS → abre no visualizador nativo do Safari
+          window.open("cardapio.pdf", "_blank");
+        } else {
+          // 🤖 Android e Desktop → abre no visualizador embutido
+          pdfViewerOverlay.classList.add("active");
+          document.body.style.overflow = "hidden";
+          pdfIframe.src = "cardapio.pdf";
+          pdfIframe.onload = () =>
+            setTimeout(() => (pdfLoading.style.display = "none"), 500);
+        }
       }
 
       function closePDF() {
