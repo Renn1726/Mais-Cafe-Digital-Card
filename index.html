@@ -1261,11 +1261,16 @@
       const pdfLoading = document.getElementById("pdfLoading");
 
       function openPDF() {
-        const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+        const isIOS =
+          /iPad|iPhone|iPod/.test(navigator.userAgent) ||
+          (navigator.userAgent.includes("Mac") && "ontouchend" in document);
 
         if (isIOS) {
-          // 📱 iOS → abre no visualizador nativo do Safari
-          window.open("cardapio.pdf", "_blank");
+          // 🍎 iOS → abre no visualizador nativo do Safari com link absoluto
+          window.open(
+            "https://renn1726.github.io/Mais-Cafe/cardapio.pdf",
+            "_blank"
+          );
         } else {
           // 🤖 Android e Desktop → abre no visualizador embutido
           pdfViewerOverlay.classList.add("active");
