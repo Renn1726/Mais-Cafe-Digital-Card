@@ -1268,20 +1268,26 @@
         const pdfUrl = "https://renn1726.github.io/Mais-Cafe/cardapio.pdf";
 
         if (isIOS) {
-          // 🍎 iOS → Pré-carrega o PDF discretamente e abre no Safari
+          // 🍎 iOS → Abre diretamente no Safari, mas mostra o "Carregando" rápido antes
           pdfLoading.style.display = "flex";
 
-          // cria um link invisível para forçar cache
+          // Pré-carrega o PDF para tornar a abertura mais instantânea
           const link = document.createElement("link");
           link.rel = "prefetch";
           link.href = pdfUrl;
           document.head.appendChild(link);
 
-          // espera 1 segundo para garantir cache
-          setTimeout(() => {
-            window.open(pdfUrl, "_blank");
+          // Abre o PDF imediatamente (sem delay) para evitar bloqueio de popup
+          const newTab = window.open(pdfUrl, "_blank");
+
+          if (newTab) {
+            setTimeout(() => {
+              pdfLoading.style.display = "none";
+            }, 500);
+          } else {
+            alert("Permita pop-ups para visualizar o cardápio.");
             pdfLoading.style.display = "none";
-          }, 1000);
+          }
         } else {
           // 🤖 Android e Desktop → abre no visualizador embutido
           pdfViewerOverlay.classList.add("active");
